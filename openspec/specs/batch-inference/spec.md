@@ -1,4 +1,12 @@
-## ADDED Requirements
+# batch-inference Specification
+
+## Purpose
+
+Batch inference as a self-serve data mesh product. Tenants own the what (which
+model, which data); MLOps owns the how (orchestration, execution parameters,
+capacity, vLLM endpoints). This spec is the contract between them.
+
+## Requirements
 
 ### Requirement: Job Submission
 

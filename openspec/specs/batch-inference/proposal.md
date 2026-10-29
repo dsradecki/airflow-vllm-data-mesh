@@ -50,19 +50,21 @@ Out of scope (already solved or handled elsewhere):
 
 ## Follow-up Changes
 
-Each item below becomes its own change under `openspec/changes/<change-id>/`,
-with its own proposal and spec deltas.
+Each design problem below becomes one change under
+`openspec/changes/p<N>-<topic>/`. That change decides the problem's design and
+implements every requirement listed for it. Each requirement belongs to exactly
+one problem.
 
 ## Open Design Problems (to be resolved one by one in later changes)
 
-Each problem below needs its own `design.md`. Whatever we choose has to satisfy
-the requirements in `specs/batch-inference/spec.md`.
+Problems are worked in the order of this table. Whatever we choose has to
+satisfy the requirements in `specs/batch-inference/spec.md`.
 
-| # | Problem | Requirements it must satisfy |
-|---|---------|------------------------------|
-| P1 | Trigger between tenants and MLOps internal Airflow | Job Submission, Load-Independent Admission, Idempotent Submission, Durable Job State |
-| P2 | DAG topology (e.g. one DAG per vLLM endpoint or not) | Operator-Managed Execution Parameters, Per-Model Isolation |
+| # | Problem | Requirements it covers |
+|---|---------|------------------------|
+| P1 | Trigger between tenants and MLOps internal Airflow | Job Submission, Job Lifecycle and Status, Idempotent Submission, Durable Job State, Cancellation, Tenant Isolation |
 | P3 | Multiple tenants targeting the same model at once | Load-Independent Admission, Per-Model Queuing, Fairness Between Tenants, Transient Fault Absorption |
+| P2 | DAG topology (e.g. one DAG per vLLM endpoint or not) | Operator-Managed Execution Parameters, Per-Model Isolation |
 | P4 | Autoscaling when demand for one model exceeds capacity | Bounded Queue Wait Time, Capacity Scaling, Online Traffic Protection, Wait-Time Visibility |
 
 ## Open Behavioural Questions
